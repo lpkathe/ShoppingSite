@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="icomoon/style.css">
   <title>ShoppingSite</title>
 </head>
+
 <body>
-  
+  <header>
+    <h1>ALTERNOVA SHOP</h1>
+  </header>
+  <section class="products">
+    <div class="card">
+      <img src="https://picsum.photos/300/200" alt="Photo">
+      <input type="number" class="desiredQuantity" placeholder="Quantity">
+      <button>Add to cart</button>
+    </div>
+  </section>
+  <section class="cart">
+    <h1>Cart</h1>
+    <div class="cart__product">
+      <p class="name"></p>
+      <p class="quantity"></p>
+      <p class="unitPrice"></p>
+      <p class="totalPrice"></p>
+    </div>
+    <p class="totalPrice"><h3>Total Order Price $<span class="totalPrice__value"></span></h3></p>
+    <button>CREATE ORDER</button>
+  </section>
+  <footer class="footer">
+    <div class="footer__social-network">
+      <p class="footer__social-network__p">Compartir en:</p>
+      <div class="footer__social-network__icons">
+        <a class="footer__social-network__icon" href="https://www.facebook.com" target="_blank"><i
+            class="icon-icon_facebook"></i></a>
+        <a class="footer__social-network__icon" href="https://www.twitter.com" target="_blank"><i
+            class="icon-icon-twitter"></i></a>
+        <a class="footer__social-network__icon" href="https://www.instagram.com" target="_blank"><i
+            class="icon-icon_instagram"></i></a>
+      </div>
+    </div>
+  </footer>
 </body>
+
 </html>
