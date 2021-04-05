@@ -15,16 +15,16 @@
   <main class="main">
     <header class="header">
       <h1 class="header_title">ALTERNOVA SHOP</h1>
-      <i class="fa fa-shopping-cart header_cart" aria-hidden="true"></i>
+      <i class="fa fa-shopping-cart header_cart" id="header_cart" aria-hidden="true"></i>
     </header>
-    <section class="products">
+    <section class="products" id="products">
       <div class="card">
         <img class="card_photo" src="https://picsum.photos/300/200" alt="Photo">
         <input type="number" class="desiredQuantity" placeholder="Quantity">
         <button>Add to cart</button>
       </div>
     </section>
-    <section class="cart">
+    <section class="cart" id="cart">
       <h1>Cart</h1>
       <div class="cart__product">
         <p class="name"></p>
@@ -48,6 +48,7 @@
       </div>
     </footer>
   </main>
+  <script src="scripts/main.js"></script>
 </body>
 
 </html>

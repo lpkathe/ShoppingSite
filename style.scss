@@ -20,6 +20,14 @@
   }
 }
 
+.products {
+  display: inline;
+  
+  &_inactive {
+    display: none;
+  }
+}
+
 .card {
   height: fit-content;
   width: fit-content;
@@ -33,4 +41,8 @@
 
 .cart {
   display: none;
+
+  &_active {
+    display: inline;
+  }
 }

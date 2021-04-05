@@ -28,6 +28,11 @@
     height: 3em;
     width: 3em; }
 
+.products {
+  display: inline; }
+  .products_inactive {
+    display: none; }
+
 .card {
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -44,5 +49,7 @@
 
 .cart {
   display: none; }
+  .cart_active {
+    display: inline; }
 
 /*# sourceMappingURL=style.css.map */
