@@ -1,0 +1,36 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  &_title {
+    display: inline-block;
+  }
+
+  &_cart {
+    height: 3em;
+    width: 3em;
+  }
+}
+
+.card {
+  height: fit-content;
+  width: fit-content;
+  justify-content: space-between;
+
+  &_photo {
+    margin-bottom: 0.5em;
+    display: block;
+  }
+}
+
+.cart {
+  display: none;
+}
