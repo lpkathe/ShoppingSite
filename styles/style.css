@@ -1,4 +1,5 @@
 .main {
+  margin: 0.3em 0.7em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,14 +27,24 @@
     display: inline-block; }
   .header_cart {
     height: 3em;
-    width: 3em; }
+    width: 3em;
+    -ms-flex-item-align: end;
+        align-self: flex-end; }
 
 .products {
+  margin: 5px auto;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   display: inline; }
   .products_inactive {
     display: none; }
 
 .card {
+  padding: 0.4em;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;

@@ -1,4 +1,5 @@
 .main {
+  margin: 0.3em 0.7em;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -17,10 +18,14 @@
   &_cart {
     height: 3em;
     width: 3em;
+    align-self: flex-end;
   }
 }
 
 .products {
+  margin: 5px auto;
+  height: max-content;
+  width: max-content;
   display: inline;
   
   &_inactive {
@@ -29,6 +34,7 @@
 }
 
 .card {
+  padding: 0.4em;
   height: fit-content;
   width: fit-content;
   justify-content: space-between;
