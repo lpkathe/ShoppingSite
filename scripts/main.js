@@ -41,6 +41,18 @@ function createCards(element, index) {
   //desiredQuantity.setAttribute("oninput", "validity.valid||(value='')");
   clonedCard.querySelector(".btnAddCart").addEventListener("click", addToCart);
   clonedCard.style.display = "block";
+  validateStock(element.stock, clonedCard);
+};
+
+function validateStock(stock, card) {
+  const cardMessage = card.querySelector(".card_alert");
+  if (stock == 0) {
+    card.style.opacity = "0.5";
+    cardMessage.style.display = "block";
+  } else {
+    card.style.opacity = "1";
+    cardMessage.style.display = "none";
+  }
 };
 
 function addToCart(event) {
@@ -58,17 +70,19 @@ function addToCart(event) {
         "quantity": quantity,
       };
       shoppingCart.push(itemCart);
+      validateStock(quantity - product.stock, item);
     } else {
       alert(`In stock ${product.stock} products only`);
-    };
+    }
   } else {
     if ((productInCart[0].quantity + quantity) <= product.stock) {
       productInCart[0].quantity += quantity;
+      validateStock(productInCart[0].quantity - product.stock, item);
     } else {
-      alert(`You can add ${(productInCart[0].quantity + quantity) - product.stock} more items.`);
-    };
-  };
-  cartCounter.innerText = shoppingCart.length
+      alert(`You can add ${(product.stock - productInCart[0].quantity)} items only.`);
+    }
+  }
+  cartCounter.innerText = shoppingCart.length;
 };
 
 btnCart.addEventListener("click", cartPage);

@@ -61,6 +61,8 @@ button {
           justify-content: space-between; }
   .card_photo {
     margin-bottom: 0.5em;
+    width: inherit;
+    height: inherit;
     display: block; }
   .card_counter {
     height: 1em;
@@ -70,6 +72,10 @@ button {
     color: red;
     margin-top: 0em;
     margin-right: 0em; }
+  .card_alert {
+    width: inherit;
+    height: inherit;
+    line-height: 3em; }
 
 .cart {
   display: none; }

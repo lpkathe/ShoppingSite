@@ -47,6 +47,8 @@ button {
 
   &_photo {
     margin-bottom: 0.5em;
+    width: inherit;
+    height: inherit;
     display: block;
   }
 
@@ -58,6 +60,12 @@ button {
     color: red;
     margin-top: 0em;
     margin-right: 0em;
+  }
+
+  &_alert {
+    width: inherit;
+    height: inherit;
+    line-height: 3em;
   }
 }
 
