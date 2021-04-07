@@ -46,12 +46,20 @@ function createCards(element, index) {
 
 function validateStock(stock, card) {
   const cardMessage = card.querySelector(".card_alert");
+  const cardPhoto = card.querySelector(".card_photo");
+  const btnAddCart = card.querySelector(".btnAddCart");
+  const desiredQuantity = card.querySelector(".desiredQuantity");
+
   if (stock == 0) {
-    card.style.opacity = "0.5";
+    cardPhoto.style.opacity = "0.5";
     cardMessage.style.display = "block";
+    btnAddCart.style.display = "none";
+    desiredQuantity.style.display = "none";
   } else {
-    card.style.opacity = "1";
+    cardPhoto.style.opacity = "1";
     cardMessage.style.display = "none";
+    btnAddCart.style.display = "inline";
+    desiredQuantity.style.display = "inline";
   }
 };
 

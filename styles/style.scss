@@ -1,7 +1,3 @@
-button {
-  padding: 0.2em;
-  border-radius: 0.2em;
-}
 
 .main {
   margin: 0.3em;
@@ -20,16 +16,16 @@ button {
     margin-bottom: 0em;
     font-family: 'Nunito', sans-serif;
   }
-
+  
   &_cart {
     margin-left: 0.2em;
     display: flex;
     align-items: center;
-
+    
     &_icon {
       transform: rotate(348deg);
     }
-
+    
     &_counter {
       height: min-content;
       width: 1.3em;
@@ -61,11 +57,11 @@ button {
   width: fit-content;
   display: none;
   justify-content: space-between;
-
+  
   &_container {
     position: relative;
   }
-
+  
   &_alert {
     margin: auto;
     top: 45%;
@@ -73,9 +69,10 @@ button {
     right: 0;
     bottom: 0;
     position: absolute;
-    font-size: 3em;
+    font-size: 2em;
+    font-weight: bold;
   }
-
+  
   &_photo {
     margin: auto auto 0.5em auto;
     width: inherit;
@@ -86,6 +83,11 @@ button {
 
 .desiredQuantity {
   width: 10em;
+}
+
+.btnAddCart {
+  padding: 0.2em;
+  border-radius: 0.2em;
 }
 
 .cart {
