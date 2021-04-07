@@ -32,15 +32,16 @@
       </div>
     </section>
     <section class="cart" id="cart">
-      <h1>Cart</h1>
-      <div class="cart__product">
-        <p id="productName"></p>
-        <p id="productQuantity"></p>
-        <p id="productUnitPrice"></p>
-        <p id="totalPrice"></p>
+      <div class="cart_products">
+        <div class="item">
+          <p class="item_name">PRODUCT</p>
+          <p class="item_quantity">QUANTITY</p>
+          <p class="item_unitPrice">UNIT PRICE</p>
+          <p class="item_totalPrice">TOTAL PRICE</p>
+        </div>
       </div>
-      <p class="totalPrice">
-      <h3>Total Order Price $<span class="totalPrice__value"></span></h3>
+      <p class="totalPriceOrder">
+      <h3 class="totalPriceOrder_value">Total Order Price $<span id="OrderValue"></span></h3>
       </p>
       <button>CREATE ORDER</button>
     </section>

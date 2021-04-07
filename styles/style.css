@@ -23,7 +23,8 @@
           flex-direction: row; }
   .header_title {
     margin-bottom: 0em;
-    font-family: 'Nunito', sans-serif; }
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer; }
   .header_cart {
     margin-left: 0.2em;
     display: -webkit-box;
@@ -31,7 +32,8 @@
     display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center; }
+            align-items: center;
+    cursor: pointer; }
     .header_cart_icon {
       -webkit-transform: rotate(348deg);
               transform: rotate(348deg); }
@@ -102,7 +104,36 @@
 .cart {
   display: none; }
   .cart_active {
+    margin: 2em;
     display: inline; }
+
+.item {
+  display: grid;
+  justify-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "name quantity unit_price total_price";
+  grid-auto-rows: minmax(3em, auto);
+  gap: 1em;
+  text-align: inherit; }
+  .item_name {
+    grid-area: name;
+    -ms-flex-item-align: end;
+        align-self: flex-end; }
+  .item_quantity {
+    grid-area: quantity;
+    -ms-flex-item-align: end;
+        align-self: flex-end; }
+  .item_unitPrice {
+    grid-area: unit_price;
+    -ms-flex-item-align: end;
+        align-self: flex-end; }
+  .item_totalPrice {
+    grid-area: total_price;
+    -ms-flex-item-align: end;
+        align-self: flex-end; }
 
 .footer {
   padding: 1em; }

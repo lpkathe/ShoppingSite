@@ -1,15 +1,14 @@
 const viewCart = document.getElementById("cart");
 const btnCart = document.getElementById("headerCart");
+const title = document.querySelector(".header_title");
 
 const cartCounter = document.getElementById("cartCounter");
 const viewProducts = document.getElementById("products");
 
-const modelCard = document.getElementById("card");
 let stockProducts = [];
-
 let shoppingCart = [];
 
-const loadInfo = function () {
+const loadProducts = function () {
   fetch('scripts/products.json')
     .then(response => response.json())
     .then(json => {
@@ -17,15 +16,25 @@ const loadInfo = function () {
       stockProducts = json.products;
     })
 };
-loadInfo();
+loadProducts();
 
 /**
- * Show and keep products and cart view.
+ * Show cart view and keep products view.
  * @param {click} event 
  */
 function cartPage(event) {
-  viewCart.classList.toggle("cart_active");
-  viewProducts.classList.toggle("products_inactive");
+  viewCart.className = "cart_active";
+  viewProducts.className = "products_inactive";
+  loadCartItems();
+};
+
+/**
+ * Show products view and keep cart view.
+ * @param {click} event 
+ */
+function productsPage(event) {
+  viewCart.className = "cart";
+  viewProducts.className = "products";
 };
 
 /**
@@ -33,6 +42,7 @@ function cartPage(event) {
  * @param {JSON Objet} element 
  */
 function createCards(element, index) {
+  const modelCard = document.getElementById("card");
   const clonedCard = modelCard.cloneNode(true);
   viewProducts.appendChild(clonedCard);
   const desiredQuantity = clonedCard.querySelector(".desiredQuantity");
@@ -44,6 +54,11 @@ function createCards(element, index) {
   validateStock(element.stock, clonedCard);
 };
 
+/**
+ * Show the user if the product is available.
+ * @param {Number} stock 
+ * @param {Model card} card 
+ */
 function validateStock(stock, card) {
   const cardMessage = card.querySelector(".card_alert");
   const cardPhoto = card.querySelector(".card_photo");
@@ -63,6 +78,10 @@ function validateStock(stock, card) {
   }
 };
 
+/**
+ * Keep the products that the user want to shop.
+ * @param {click} event 
+ */
 function addToCart(event) {
   const item = event.target.closest("div");
   const productNumber = item.id;
@@ -78,6 +97,8 @@ function addToCart(event) {
       }
       shoppingCart.push(itemCart);
       validateStock(quantity - product.stock, item);
+      alert(`${product.name} added succesfully`);
+      item.querySelector(".desiredQuantity").value = "";
     } else {
       alert(`In stock ${product.stock} products only`);
     }
@@ -92,4 +113,30 @@ function addToCart(event) {
   cartCounter.innerText = shoppingCart.length;
 };
 
+function loadCartItems() {
+  const modelProduct = document.querySelector(".item");
+
+  shoppingCart.forEach(element => {
+    const item = modelProduct.cloneNode(true);
+    const cartContainer = document.querySelector(".cart_products");
+    cartContainer.appendChild(item);
+
+    item.querySelector(".item_name").innerHTML = `${element.product.name}`;
+    item.querySelector(".item_quantity").innerHTML = `${element.quantity}`;
+    item.querySelector(".item_unitPrice").innerHTML = `${element.product.unit_price}`;
+    item.querySelector(".item_totalPrice").innerHTML = `${element.product.unit_price * element.quantity}`;
+  })
+
+  const values = document.querySelectorAll(".item_totalPrice");
+  let sumValues = 0;
+
+  values.forEach((element, index) => {
+    if (index != 0) {
+      sumValues += element.innerHTML;
+    }
+  })
+  parseInt(document.getElementById("OrderValue")).innerHTML = `${sumValues}`;
+};
+
 btnCart.addEventListener("click", cartPage);
+title.addEventListener("click", productsPage);
