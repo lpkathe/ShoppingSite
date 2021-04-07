@@ -105,6 +105,7 @@ function addToCart(event) {
   } else {
     if ((productInCart[0].quantity + quantity) <= product.stock) {
       productInCart[0].quantity += quantity;
+      alert(`${product.name} added succesfully`);
       validateStock(productInCart[0].quantity - product.stock, item);
     } else {
       alert(`You can add ${(product.stock - productInCart[0].quantity)} items only.`);
@@ -114,17 +115,19 @@ function addToCart(event) {
 };
 
 function loadCartItems() {
-  const modelProduct = document.querySelector(".item");
+  const cartContainer = document.querySelector(".cart_products");
+  const modelProduct = cartContainer.querySelector(".item");
+  cartContainer.innerHTML = "";
+  cartContainer.appendChild(modelProduct);
 
   shoppingCart.forEach(element => {
     const item = modelProduct.cloneNode(true);
-    const cartContainer = document.querySelector(".cart_products");
     cartContainer.appendChild(item);
 
-    item.querySelector(".item_name").innerHTML = `${element.product.name}`;
-    item.querySelector(".item_quantity").innerHTML = `${element.quantity}`;
-    item.querySelector(".item_unitPrice").innerHTML = `${element.product.unit_price}`;
-    item.querySelector(".item_totalPrice").innerHTML = `${element.product.unit_price * element.quantity}`;
+    item.querySelector(".item_name").innerText = `${element.product.name}`;
+    item.querySelector(".item_quantity").innerText = `${element.quantity}`;
+    item.querySelector(".item_unitPrice").innerText = `${element.product.unit_price}`;
+    item.querySelector(".item_totalPrice").innerText = `${element.product.unit_price * element.quantity}`;
   })
 
   const values = document.querySelectorAll(".item_totalPrice");
@@ -135,7 +138,7 @@ function loadCartItems() {
       sumValues += element.innerHTML;
     }
   })
-  parseInt(document.getElementById("OrderValue")).innerHTML = `${sumValues}`;
+  parseInt(document.getElementById("OrderValue")).innerText = `${sumValues}`;
 };
 
 btnCart.addEventListener("click", cartPage);
