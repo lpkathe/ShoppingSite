@@ -8,6 +8,7 @@ button {
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
 }
 
 .header {
@@ -41,7 +42,7 @@ button {
 }
 
 .products {
-  margin: 5px auto;
+  margin: 3em auto;
   height: max-content;
   width: max-content;
   display: inline;
@@ -58,28 +59,27 @@ button {
   display: none;
   justify-content: space-between;
 
+  &_container {
+    position: relative;
+  }
+
+  &_alert {
+    margin: auto;
+    top: 45%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    font-size: 3em;
+  }
+
   &_photo {
-    margin-bottom: 0.5em;
+    margin: auto auto 0.5em auto;
     width: inherit;
     height: inherit;
     display: block;
   }
 
-  &_counter {
-    height: 1em;
-    width: 1em;
-    border-radius: 0.3em;
-    background-color: black;
-    color: red;
-    margin-top: 0em;
-    margin-right: 0em;
-  }
-
-  &_alert {
-    width: inherit;
-    height: inherit;
-    line-height: 3em;
-  }
 }
 
 .cart {
