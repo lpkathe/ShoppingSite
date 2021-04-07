@@ -15,22 +15,25 @@
   <main class="main">
     <header class="header">
       <h1 class="header_title">ALTERNOVA SHOP</h1>
-      <i class="fa fa-shopping-cart header_cart" id="header_cart" aria-hidden="true"></i>
+      <div>
+        <i class="fa fa-shopping-cart header_cart" id="headerCart" aria-hidden="true"></i>
+        <p class="cart_counter" id="cartCounter">0</p>
+      </div>
     </header>
     <section class="products" id="products">
       <div class="card" id="card">
         <img class="card_photo" src="https://picsum.photos/300/200" alt="Photo">
-        <input type="number" class="desiredQuantity" placeholder="Quantity">
-        <button>Add to cart</button>
+        <input type="number" class="desiredQuantity" placeholder="Quantity" min="0">
+        <button class="btnAddCart">Add to cart</button>
       </div>
     </section>
     <section class="cart" id="cart">
       <h1>Cart</h1>
       <div class="cart__product">
-        <p class="name"></p>
-        <p class="quantity"></p>
-        <p class="unitPrice"></p>
-        <p class="totalPrice"></p>
+        <p id="productName"></p>
+        <p id="productQuantity"></p>
+        <p id="productUnitPrice"></p>
+        <p id="totalPrice"></p>
       </div>
       <p class="totalPrice">
       <h3>Total Order Price $<span class="totalPrice__value"></span></h3>

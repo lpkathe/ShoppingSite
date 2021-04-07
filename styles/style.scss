@@ -1,5 +1,10 @@
+button {
+  padding: 5px;
+  border-radius: 0.2em;
+}
+
 .main {
-  margin: 0.3em 0.7em;
+  margin: 0.3em;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -37,11 +42,22 @@
   padding: 0.4em;
   height: fit-content;
   width: fit-content;
+  display: none;
   justify-content: space-between;
 
   &_photo {
     margin-bottom: 0.5em;
     display: block;
+  }
+
+  &_counter {
+    height: 1em;
+    width: 1em;
+    border-radius: 0.3em;
+    background-color: black;
+    color: red;
+    margin-top: 0em;
+    margin-right: 0em;
   }
 }
 
@@ -51,4 +67,8 @@
   &_active {
     display: inline;
   }
+}
+
+.footer {
+  padding: 1em;
 }
