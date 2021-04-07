@@ -40,22 +40,30 @@ button {
       -webkit-transform: rotate(348deg);
               transform: rotate(348deg); }
     .header_cart_counter {
-      height: 1em;
-      width: 1em;
+      height: -webkit-min-content;
+      height: -moz-min-content;
+      height: min-content;
+      width: 1.3em;
       font-size: 0.7em;
+      font-weight: bolder;
       color: white;
       background-color: blue;
       border-radius: 1em; }
 
 .products {
   margin: 3em auto;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  display: inline; }
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
   .products_inactive {
     display: none; }
 
@@ -86,6 +94,9 @@ button {
     width: inherit;
     height: inherit;
     display: block; }
+
+.desiredQuantity {
+  width: 10em; }
 
 .cart {
   display: none; }

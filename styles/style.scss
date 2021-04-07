@@ -31,9 +31,10 @@ button {
     }
 
     &_counter {
-      height: 1em;
-      width: 1em;
+      height: min-content;
+      width: 1.3em;
       font-size: 0.7em;
+      font-weight: bolder;
       color: white;
       background-color: blue;
       border-radius: 1em;
@@ -43,9 +44,11 @@ button {
 
 .products {
   margin: 3em auto;
-  height: max-content;
-  width: max-content;
-  display: inline;
+  height: fit-content;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   
   &_inactive {
     display: none;
@@ -79,7 +82,10 @@ button {
     height: inherit;
     display: block;
   }
+}
 
+.desiredQuantity {
+  width: 10em;
 }
 
 .cart {
