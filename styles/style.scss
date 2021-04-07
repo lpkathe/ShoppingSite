@@ -1,5 +1,5 @@
 button {
-  padding: 5px;
+  padding: 0.2em;
   border-radius: 0.2em;
 }
 
@@ -11,19 +11,32 @@ button {
 }
 
 .header {
-  align-items: center;
+  padding: 0.3em;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-
+  
   &_title {
-    display: inline-block;
+    margin-bottom: 0em;
+    font-family: 'Nunito', sans-serif;
   }
 
   &_cart {
-    height: 3em;
-    width: 3em;
-    align-self: flex-end;
+    margin-left: 0.2em;
+    display: flex;
+    align-items: center;
+
+    &_icon {
+      transform: rotate(348deg);
+    }
+
+    &_counter {
+      height: 1em;
+      width: 1em;
+      font-size: 0.7em;
+      color: white;
+      background-color: blue;
+      border-radius: 1em;
+    }
   }
 }
 

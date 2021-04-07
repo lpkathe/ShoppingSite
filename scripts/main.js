@@ -17,7 +17,7 @@ const loadInfo = function () {
       stockProducts = json.products;
     })
 };
-loadInfo()
+loadInfo();
 
 /**
  * Show and keep products and cart view.
@@ -60,7 +60,6 @@ function addToCart(event) {
   const productNumber = item.id;
   const product = stockProducts[productNumber];
   const quantity = parseInt(item.querySelector(".desiredQuantity").value);
-
   const productInCart = shoppingCart.filter(data => data.product == product);
 
   if (productInCart.length == 0) {
@@ -68,7 +67,7 @@ function addToCart(event) {
       const itemCart = {
         "product": product,
         "quantity": quantity,
-      };
+      }
       shoppingCart.push(itemCart);
       validateStock(quantity - product.stock, item);
     } else {
