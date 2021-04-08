@@ -12,7 +12,7 @@ let shoppingCart = [];
 let sumValues = 0;
 
 /**
- * 
+ * Load initial info.
  */
 function onLoad() {
   fetch('scripts/products.json')
@@ -59,10 +59,12 @@ function createCards(element, index) {
   viewProducts.appendChild(clonedCard);
   const desiredQuantity = clonedCard.querySelector(".desiredQuantity");
   desiredQuantity.setAttribute("max", `${element.stock}`);
+  desiredQuantity.setAttribute("onkeypress", "return event.charCode >= 48 && event.charCode <= 57");
   clonedCard.setAttribute("id", index);
-  clonedCard.querySelector(".btnAddCart").addEventListener("click", addToCart);
   clonedCard.style.display = "block";
   validateStock(element.stock, clonedCard);
+
+  clonedCard.querySelector(".btnAddCart").addEventListener("click", addToCart);
 };
 
 /**
@@ -101,6 +103,11 @@ function addToCart(event) {
   const productInCart = shoppingCart.filter(data => data.product == product);
   const desiredQuantity = item.querySelector(".desiredQuantity");
 
+  if (!validateProducts(product)) {
+    desiredQuantity.value = "";
+    return;
+  };
+
   if (productInCart.length == 0) {
     if (quantity <= product.stock) {
       const itemCart = {
@@ -110,24 +117,48 @@ function addToCart(event) {
       shoppingCart.push(itemCart);
       validateStock(product.stock - quantity, item);
       alert(`${product.name} added succesfully`);
-      desiredQuantity.value = "";
     } else {
       alert(`In stock ${product.stock} products only`);
-      desiredQuantity.value = "";
     }
   } else {
     if ((productInCart[0].quantity + quantity) <= product.stock) {
       productInCart[0].quantity += quantity;
       alert(`${product.name} added succesfully`);
       validateStock(product.stock - productInCart[0].quantity, item);
-      desiredQuantity.value = "";
     } else {
       alert(`You can add ${(product.stock - productInCart[0].quantity)} items only.`);
-      desiredQuantity.value = "";
     }
   }
+  desiredQuantity.value = "";
   cartCounter.innerText = shoppingCart.length;
   loadCartItems();
+};
+
+/**
+ * Validate a products values.
+ * @param {Object} product 
+ * @returns 
+ */
+function validateProducts(product) {
+  const unitPrice = product.unit_price;
+  const stock = product.stock;
+
+  if (unitPrice == "" || unitPrice == " " || (!isNaN(unitPrice) && unitPrice <= 0)) {
+    alert("This product doesn't have a valid unit price");
+    return false;
+  }
+
+  if (stock == " " || stock == "" || (!isNaN(stock) && stock < 0)) {
+    alert("This product doesn't have a valid stock");
+    return false;
+  }
+
+  if (product.name.trim() == "") {
+    product.name = "No name";
+    return true;
+  }
+
+  return true;
 };
 
 /**
