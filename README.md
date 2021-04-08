@@ -11,8 +11,8 @@ Online shopping site using HTML, Javascript and CSS.
 6. [Firefox](https://www.mozilla.org/es-ES/firefox/new/)
 7. [CSS Validator](https://jigsaw.w3.org/css-validator/)
 8. [HTML Validator](https://validator.w3.org/) 
-9. [Font-Awesome] (https://fontawesome.com/v4.7.0/icons/)
-10. [Google Fonts] (https://fonts.google.com/)
+9. [Font-Awesome](https://fontawesome.com/v4.7.0/icons/)
+10. [GoogleFonts](https://fonts.google.com/)
 
 ### Branches
 * **[main](https://github.com/lpkathe/ShoppingSite/tree/main)** *(default)*
