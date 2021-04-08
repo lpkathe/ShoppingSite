@@ -18,6 +18,10 @@ function onLoad() {
   fetch('scripts/products.json')
     .then(response => response.json())
     .then(json => {
+      if (json.products.length == 0){
+        const empyMessage = document.querySelector(".emptyMessage");
+        empyMessage.style.display = "block"
+      };
       json.products.forEach((element, index) => createCards(element, index));
       stockProducts = json.products;
     })

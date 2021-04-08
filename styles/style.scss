@@ -52,6 +52,11 @@
   }
 }
 
+.emptyMessage {
+  display: none;
+  line-height: 10em;
+}
+
 .card {
   padding: 0.4em;
   height: fit-content;

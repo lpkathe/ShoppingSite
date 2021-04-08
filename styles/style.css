@@ -65,6 +65,10 @@
   .products_inactive {
     display: none; }
 
+.emptyMessage {
+  display: none;
+  line-height: 10em; }
+
 .card {
   padding: 0.4em;
   height: -webkit-fit-content;
