@@ -125,17 +125,13 @@
   .main {
     padding: 1em;
     display: grid;
-    grid-template-areas: 
-    "header header"
-    "products cart"
-    "footer footer";
+    grid-template-columns: repeat(2, 1fr);
     align-items: unset;
     justify-items: center;
     gap: 0.3em;
   }
 
   .header {
-    grid-area: header;
 
     &_title {
       cursor: unset;
@@ -160,14 +156,9 @@
     }
   }
 
-  .products {
-    grid-area: products;
-  }
-
   .cart {
     margin: 3em auto;
     display: inline;
-    grid-area: cart;
   }
 
   .item {

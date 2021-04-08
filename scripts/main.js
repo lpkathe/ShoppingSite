@@ -76,7 +76,7 @@ function validateStock(stock, card) {
   const btnAddCart = card.querySelector(".btnAddCart");
   const desiredQuantity = card.querySelector(".desiredQuantity");
 
-  if (stock == 0) {
+  if (stock <= 0) {
     cardPhoto.style.opacity = "0.5";
     cardMessage.style.display = "block";
     btnAddCart.style.display = "none";
@@ -99,6 +99,7 @@ function addToCart(event) {
   const product = stockProducts[productNumber];
   const quantity = parseInt(item.querySelector(".desiredQuantity").value);
   const productInCart = shoppingCart.filter(data => data.product == product);
+  const desiredQuantity = item.querySelector(".desiredQuantity");
 
   if (productInCart.length == 0) {
     if (quantity <= product.stock) {
@@ -107,19 +108,22 @@ function addToCart(event) {
         "quantity": quantity,
       }
       shoppingCart.push(itemCart);
-      validateStock(quantity - product.stock, item);
+      validateStock(product.stock - quantity, item);
       alert(`${product.name} added succesfully`);
-      item.querySelector(".desiredQuantity").value = "";
+      desiredQuantity.value = "";
     } else {
       alert(`In stock ${product.stock} products only`);
+      desiredQuantity.value = "";
     }
   } else {
     if ((productInCart[0].quantity + quantity) <= product.stock) {
       productInCart[0].quantity += quantity;
       alert(`${product.name} added succesfully`);
-      validateStock(productInCart[0].quantity - product.stock, item);
+      validateStock(product.stock - productInCart[0].quantity, item);
+      desiredQuantity.value = "";
     } else {
       alert(`You can add ${(product.stock - productInCart[0].quantity)} items only.`);
+      desiredQuantity.value = "";
     }
   }
   cartCounter.innerText = shoppingCart.length;

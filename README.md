@@ -1,8 +1,8 @@
 # ShoppingSite
-Online shopping site from the ground up using HTML, Javascript and CSS.
+Online shopping site using HTML, Javascript and CSS.
 
 
-### Herramientas:
+### Tools:
 1. [Visual Studio Code](https://code.visualstudio.com/)
 2. [Koala](http://koala-app.com/) *- Sass*
 3. [Git](https://git-scm.com/)
@@ -11,12 +11,14 @@ Online shopping site from the ground up using HTML, Javascript and CSS.
 6. [Firefox](https://www.mozilla.org/es-ES/firefox/new/)
 7. [CSS Validator](https://jigsaw.w3.org/css-validator/)
 8. [HTML Validator](https://validator.w3.org/) 
+9. [Font-Awesome] (https://fontawesome.com/v4.7.0/icons/)
+10. [Google Fonts] (https://fonts.google.com/)
 
 ### Branches
-* **[master](https://github.com/lpkathe/ShoppingSite/tree/master)** *(default)*
+* **[main](https://github.com/lpkathe/ShoppingSite/tree/main)** *(default)*
 * [develop](https://github.com/lpkathe/ShoppingSite/tree/develop)
 
-### Metodologías
+### Methodologies
 * [Bem](http://getbem.com/introduction/)
 * Mobile First
 
