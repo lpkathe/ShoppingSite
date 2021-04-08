@@ -1,5 +1,6 @@
-const viewCart = document.getElementById("cart");
 const btnCart = document.getElementById("headerCart");
+const btnOrder = document.querySelector(".btn_order");
+const viewCart = document.getElementById("cart");
 const title = document.querySelector(".header_title");
 
 const cartCounter = document.getElementById("cartCounter");
@@ -7,6 +8,8 @@ const viewProducts = document.getElementById("products");
 
 let stockProducts = [];
 let shoppingCart = [];
+
+let sumValues = 0;
 
 const loadProducts = function () {
   fetch('scripts/products.json')
@@ -114,10 +117,14 @@ function addToCart(event) {
   cartCounter.innerText = shoppingCart.length;
 };
 
+/**
+ * Load cart page information.
+ */
 function loadCartItems() {
   const cartContainer = document.querySelector(".cart_products");
   const modelProduct = cartContainer.querySelector(".item");
   cartContainer.innerHTML = "";
+  sumValues = 0;
   cartContainer.appendChild(modelProduct);
 
   shoppingCart.forEach(element => {
@@ -129,17 +136,43 @@ function loadCartItems() {
     item.querySelector(".item_unitPrice").innerText = `${element.product.unit_price}`;
     item.querySelector(".item_totalPrice").innerText = `${element.product.unit_price * element.quantity}`;
   })
+  calculateOrderValue();
+};
 
+/**
+ * Calculate the total value of the order.
+ */
+function calculateOrderValue() {
   const values = document.querySelectorAll(".item_totalPrice");
-  let sumValues = 0;
 
   values.forEach((element, index) => {
     if (index != 0) {
-      sumValues += element.innerHTML;
+      sumValues += parseInt(element.innerHTML);
     }
   })
-  parseInt(document.getElementById("OrderValue")).innerText = `${sumValues}`;
+  document.getElementById("OrderValue").innerText = `${sumValues}`;
 };
 
+/**
+ * Create a JSON file with items list for shop.
+ */
+function createOrder() {
+  const order = {
+    "product": shoppingCart,
+    "totalOrderValue": sumValues
+  }
+  
+  createJsonFile(JSON.stringify(order), 'order.json', 'text/json;charset=utf-8');
+};
+
+function createJsonFile(content, fileName, contentType) {
+  const anchor = document.createElement("a");
+  const file = new Blob([content], {type: contentType});
+  anchor.href = URL.createObjectURL(file);
+  anchor.download = fileName;
+  anchor.click();
+}
+
 btnCart.addEventListener("click", cartPage);
+btnOrder.addEventListener("click", createOrder);
 title.addEventListener("click", productsPage);
