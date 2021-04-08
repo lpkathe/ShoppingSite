@@ -22,11 +22,11 @@ Online shopping site from the ground up using HTML, Javascript and CSS.
 
 ### Responsive Design
 * Mobile 
-* Desktop *(min-width: 1440px)*
+* Desktop *(min-width: 1023px)*
 
 ### Website Link
  * [https://lpkathe.github.io/ShoppingSite/](https://lpkathe.github.io/ShoppingSite/index.html)
 
  ### Validators
- - [x] HTML: (Pending)
- - [x] CSS: (Pending)
+ - [x] HTML: [Valid HTML](https://validator.w3.org/nu/?doc=https%3A%2F%2Flpkathe.github.io%2FShoppingSite%2F)
+ - [x] CSS:![Valid CSS](http://jigsaw.w3.org/css-validator/images/vcss)

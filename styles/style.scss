@@ -112,9 +112,14 @@
   padding: 1em;
 }
 
+.fa {
+  height: 1em;
+  width: 1em;
+}
+
 @media (min-width: 1023px) {
   .main {
-    padding: 3em;
+    padding: 1em;
     display: grid;
     grid-template-areas: 
     "header header"
@@ -122,6 +127,7 @@
     "footer footer";
     align-items: unset;
     justify-items: center;
+    gap: 0.3em;
   }
 
   .header {
@@ -132,7 +138,21 @@
     }
 
     &_cart {
+      margin-left: 3em;
       cursor: unset;
+
+      &_icon {
+        font-size: 4em;
+      }
+
+      &_counter {
+        height: 2.3em;
+        width: 2.3em;
+        border-radius: 2em;
+        align-self: flex-end;
+        line-height: 2.3em;
+        font-size: small;
+      }
     }
   }
 

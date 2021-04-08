@@ -11,15 +11,24 @@ let shoppingCart = [];
 
 let sumValues = 0;
 
-const loadProducts = function () {
+/**
+ * 
+ */
+function onLoad() {
   fetch('scripts/products.json')
     .then(response => response.json())
     .then(json => {
       json.products.forEach((element, index) => createCards(element, index));
       stockProducts = json.products;
     })
+
+  if (window.screen.width < 1023) {
+    title.addEventListener("click", productsPage);
+    btnCart.addEventListener("click", cartPage);
+  }
+
+  loadCartItems();
 };
-loadProducts();
 
 /**
  * Show cart view and keep products view.
@@ -115,6 +124,7 @@ function addToCart(event) {
     }
   }
   cartCounter.innerText = shoppingCart.length;
+  loadCartItems();
 };
 
 /**
@@ -161,18 +171,23 @@ function createOrder() {
     "product": shoppingCart,
     "totalOrderValue": sumValues
   }
-  
+
   createJsonFile(JSON.stringify(order), 'order.json', 'text/json;charset=utf-8');
 };
 
+/**
+ * Create a Json file.
+ * @param {String} content 
+ * @param {String} fileName 
+ * @param {String} contentType 
+ */
 function createJsonFile(content, fileName, contentType) {
   const anchor = document.createElement("a");
-  const file = new Blob([content], {type: contentType});
+  const file = new Blob([content], { type: contentType });
   anchor.href = URL.createObjectURL(file);
   anchor.download = fileName;
   anchor.click();
-}
+};
 
-btnCart.addEventListener("click", cartPage);
+window.addEventListener("load", onLoad);
 btnOrder.addEventListener("click", createOrder);
-title.addEventListener("click", productsPage);
