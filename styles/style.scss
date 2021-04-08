@@ -100,7 +100,7 @@
   display: none;
 
   &_active {
-    margin: 2em;
+    margin: 1.2em;
     display: inline;
   }
 }
@@ -113,7 +113,7 @@
   text-align: right;
 
   &_name {
-    overflow: scroll;
+    text-overflow: ellipsis;
   }
 }
 

@@ -108,7 +108,7 @@
 .cart {
   display: none; }
   .cart_active {
-    margin: 2em;
+    margin: 1.2em;
     display: inline; }
 
 .item {
@@ -118,7 +118,7 @@
   gap: 1em;
   text-align: right; }
   .item_name {
-    overflow: scroll; }
+    text-overflow: ellipsis; }
 
 .footer {
   padding: 1em; }
