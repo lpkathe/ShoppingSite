@@ -19,6 +19,11 @@
           "name": "meat / pound",
           "unit_price": 500,
           "stock": 8
+      },
+      {
+          "name": "meat / pounduuyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+          "unit_price": 500,
+          "stock": 8
       }
   ]
 }

@@ -29,4 +29,4 @@ Online shopping site from the ground up using HTML, Javascript and CSS.
 
  ### Validators
  - [x] HTML: [Valid HTML](https://validator.w3.org/nu/?doc=https%3A%2F%2Flpkathe.github.io%2FShoppingSite%2F)
- - [x] CSS:![Valid CSS](http://jigsaw.w3.org/css-validator/images/vcss)
+ - [x] CSS:  ![Valid CSS](http://jigsaw.w3.org/css-validator/images/vcss)

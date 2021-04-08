@@ -60,7 +60,6 @@ function createCards(element, index) {
   const desiredQuantity = clonedCard.querySelector(".desiredQuantity");
   desiredQuantity.setAttribute("max", `${element.stock}`);
   clonedCard.setAttribute("id", index);
-  //desiredQuantity.setAttribute("oninput", "validity.valid||(value='')");
   clonedCard.querySelector(".btnAddCart").addEventListener("click", addToCart);
   clonedCard.style.display = "block";
   validateStock(element.stock, clonedCard);
